@@ -49,6 +49,7 @@ app.get("*", (req, res) => {
 app.use(errorMiddleware);
 
 app.get("/", (req, res) => {
+  res.setHeader("Access-Control-Allow-Credentials", "true");
   res.json("Welcome to the API");
 });
 
