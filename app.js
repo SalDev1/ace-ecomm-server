@@ -15,11 +15,6 @@ import cors from "cors";
 
 var app = express();
 
-// Config
-if (process.env.NODE_ENV !== "PRODUCTION") {
-  dotenv.config();
-}
-
 app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,8 +27,6 @@ app.use("/api/v1", order);
 app.use("/api/v1", payment);
 
 // For deployment purposes.
-// app.use(expr
-
 /*
   As React only changes the component in the frontend , meaning
   everything works in the single page.
@@ -49,7 +42,6 @@ app.get("*", (req, res) => {
 app.use(errorMiddleware);
 
 app.get("/", (req, res) => {
-  res.setHeader("Access-Control-Allow-Credentials", "true");
   res.json("Welcome to the API");
 });
 
