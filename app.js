@@ -8,9 +8,6 @@ import bodyParser from "body-parser";
 import fileUpload from "express-fileupload";
 import payment from "./routes/paymentRoute.js";
 import dotenv from "dotenv";
-import path from "path";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
 import cors from "cors";
 
 var app = express();
@@ -19,7 +16,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload());
-app.use(cors());
+app.use(cors("Access-Control-Allow-Origin", "*"));
 
 app.use("/api/v1", products);
 app.use("/api/v1", user);
