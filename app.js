@@ -31,12 +31,14 @@ app.use("/api/v1", payment);
   As React only changes the component in the frontend , meaning
   everything works in the single page.
  */
-const __dirname = dirname(fileURLToPath(import.meta.url));
-app.use(express.static(path.join(__dirname, "../client/build")));
+dotenv.config();
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
-});
+// const __dirname = dirname(fileURLToPath(import.meta.url));
+// app.use(express.static(path.join(__dirname, "../client/build")));
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
+// });
 
 // Middleware for error.
 app.use(errorMiddleware);

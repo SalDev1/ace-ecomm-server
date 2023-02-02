@@ -6,6 +6,7 @@ const connectDatabase = () => {
     .connect(process.env.CONNECTION_URL, {
       useNewUrlParser: true,
       useFindAndModify: true,
+      useUnifiedTopology: true,
     })
     .then((req, res) => {
       console.log("Mongodb is connected");
