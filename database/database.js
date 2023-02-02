@@ -10,6 +10,9 @@ const connectDatabase = () => {
     })
     .then((req, res) => {
       console.log("Mongodb is connected");
+    })
+    .catch((err) => {
+      console.log(err);
     });
 };
 
